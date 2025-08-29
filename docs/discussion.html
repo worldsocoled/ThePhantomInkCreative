@@ -21,53 +21,32 @@
       text-align: center;
       margin-bottom: 40px;
     }
-    .section { margin-bottom: 50px; }
+    .section {
+      margin-bottom: 50px;
+      background: #111113;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #4ade80;
+    }
     .section h2 {
-      margin-bottom: 15px;
+      margin: 0 0 15px 0;
+      color: #4ade80;
       border-bottom: 2px solid #4ade80;
       padding-bottom: 5px;
     }
-
-    .post-form {
-      background: #111113;
-      padding: 20px;
-      border-radius: 12px;
+    .section-description {
       margin-bottom: 20px;
+      color: #a9a9b2;
+      font-style: italic;
     }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
+    
+    /* Disqus container styling */
+    .disqus-container {
+      background: #1a1a1f;
+      padding: 20px;
       border-radius: 8px;
-      border: 1px solid #333;
-      margin-bottom: 10px;
-      background: #0b0b0c;
-      color: #e8e8ec;
+      margin-top: 15px;
     }
-    button {
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      background: #4ade80;
-      color: #111;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { background: #22c55e; }
-
-    .posts { display: flex; flex-direction: column; gap: 12px; }
-    .post {
-      background: #111113;
-      padding: 16px;
-      border-radius: 12px;
-      border-left: 4px solid #4ade80;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      word-break: break-word;
-    }
-    .post:nth-child(even) { background: #1a1a1f; }
-    .post .name { font-weight: bold; }
-    .post time { font-size: 0.8em; color: #a9a9b2; align-self: flex-end; }
 
     footer {
       background: #111113;
@@ -75,6 +54,7 @@
       padding: 40px 20px 20px;
       font-family: system-ui, sans-serif;
     }
+
     .footer-content {
       max-width: 1000px;
       margin: 0 auto;
@@ -84,28 +64,86 @@
       text-align: center;
       gap: 20px;
     }
-    .footer-brand h3 { margin: 0; font-size: 1.5rem; }
-    .footer-tagline { margin: 5px 0 0; font-size: 1rem; color: #a9a9b2; }
-    .social-links { display: flex; gap: 15px; margin: 10px 0; }
-    .social-link { color: #e8e8ec; font-size: 1.4rem; transition: color 0.3s; }
-    .social-link:hover { color: #4ade80; }
-    .contact-info { margin: 10px 0; }
+
+    .footer-brand h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .footer-tagline {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      color: #a9a9b2;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin: 10px 0;
+    }
+
+    .social-link {
+      color: #e8e8ec;
+      font-size: 1.4rem;
+      transition: color 0.3s;
+    }
+
+    .social-link:hover {
+      color: #4ade80;
+    }
+
+    .contact-info {
+      margin: 10px 0;
+    }
+
     .contact-info .email-link {
       color: #e8e8ec;
       text-decoration: none;
       transition: color 0.3s;
     }
-    .contact-info .email-link:hover { color: #4ade80; }
-    .footer-divider { width: 80%; height: 1px; background: #333; margin: 20px 0; }
+
+    .contact-info .email-link:hover {
+      color: #4ade80;
+    }
+
+    .footer-divider {
+      width: 80%;
+      height: 1px;
+      background: #333;
+      margin: 20px 0;
+    }
+
     .footer-bottom {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 8px; font-size: 0.9rem; color: #a9a9b2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: #a9a9b2;
+    }
+
+    .home-link {
+      color: #4ade80;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .home-link:hover {
+      color: #22c55e;
     }
 
     /* Responsive adjustments */
     @media (max-width: 600px) {
-      .footer-bottom { flex-direction: column; gap: 4px; }
-      .social-links { gap: 10px; }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .social-links {
+        gap: 10px;
+      }
+      .wrap {
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -113,23 +151,117 @@
   <div class="wrap">
     <h1>💬 The Phantom Ink Discussion Board</h1>
 
-    <!-- Sections -->
-    <div class="section" id="booksSection">
+    <!-- Books Section -->
+    <div class="section">
       <h2>📚 Books We Should Read</h2>
-      <span>Share your favorites or your own books you love!</span>
-      <form class="post-form" data-section="books" id="formBooks">
-        <input type="text" class="postName" placeholder="Your display name..." required>
-        <textarea class="postText" placeholder="Share your book ideas..." required></textarea>
-        <button type="submit">Post</button>
-      </form>
-      <div class="posts" id="postsBooks"></div>
+      <div class="section-description">Share your favorites or your own books you love!</div>
+      <div class="disqus-container">
+        <div id="disqus_books"></div>
+      </div>
     </div>
 
-    <div class="section" id="mediumSection">
+    <!-- Medium Section -->
+    <div class="section">
       <h2>✍️ Medium Users and IDs!</h2>
-      <span>Share your Medium profile or ID for like/follow!</span>
-      <form class="post-form" data-section="medium" id="formMedium">
-        <input type="text" class="postName" placeholder="Your display name..." required>
-        <textarea class="postText" placeholder="Share your Medium profile or ID..." required></
+      <div class="section-description">Share your Medium profile or ID for like/follow!</div>
+      <div class="disqus-container">
+        <div id="disqus_medium"></div>
+      </div>
+    </div>
 
+    <!-- Articles Section -->
+    <div class="section">
+      <h2>📝 Article Ideas</h2>
+      <div class="section-description">Want something specific? Let us know!</div>
+      <div class="disqus-container">
+        <div id="disqus_articles"></div>
+      </div>
+    </div>
 
+    <!-- Feedback Section -->
+    <div class="section">
+      <h2>💡 General Feedback</h2>
+      <div class="section-description">Positivity, good vibes, general discussions.</div>
+      <div class="disqus-container">
+        <div id="disqus_feedback"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Thank you for visiting The Phantom Ink Creative!</h3>
+        <p class="footer-tagline">Visit our social media platforms to learn more about us.</p>
+        <p><a href="index.html" class="home-link">🏠 Back to Home</a></p>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://facebook.com/phantomink" class="social-link facebook" aria-label="Follow us on Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/phantomink" class="social-link instagram" aria-label="Follow us on Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/phantomink" class="social-link twitter" aria-label="Follow us on X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <a href="mailto:colensammy@gmail.com" class="email-link">
+          <i class="fas fa-envelope"></i>
+          colensammy@gmail.com
+        </a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-bottom">
+        <span>&copy; 2025 The Phantom Ink Creative</span>
+        <span>•</span>
+        <span>A Publication</span>
+        <span>•</span>
+        <span>Made with ❤️ by WorldSoColed</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Replace 'YOUR_DISQUS_SHORTNAME' with your actual Disqus shortname
+    var disqus_shortname = 'YOUR_DISQUS_SHORTNAME';
+    
+    // Function to load Disqus for a specific section
+    function loadDisqus(identifier, container) {
+      var disqus_identifier = identifier;
+      var disqus_url = window.location.href + '#' + identifier;
+      
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      dsq.setAttribute('data-timestamp', +new Date());
+      
+      // Set the container for this specific Disqus thread
+      window.disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+      };
+      
+      document.getElementById(container).appendChild(dsq);
+    }
+
+    // Load Disqus for each section
+    document.addEventListener('DOMContentLoaded', function() {
+      loadDisqus('books', 'disqus_books');
+      
+      // Add some delay between loading different sections to avoid conflicts
+      setTimeout(() => loadDisqus('medium', 'disqus_medium'), 1000);
+      setTimeout(() => loadDisqus('articles', 'disqus_articles'), 2000);
+      setTimeout(() => loadDisqus('feedback', 'disqus_feedback'), 3000);
+    });
+  </script>
+
+</body>
+</html>
