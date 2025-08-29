@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>The Phantom Ink Creative — A Publication</title>
+  <meta name="description" content="The Phantom Ink Creative: A publication for stories, essays, and ideas." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --fg: #e8e8ec;
+      --muted: #a9a9b2;
+      --card: #111113;
+      --shadow-1: 0 1px 1px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-2: inset 2px 2px 6px rgba(255,255,255,.04), inset -3px -3px 10px rgba(0,0,0,.5);
+      --radius: 18px;
+      --maxw: 1024px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f7f7f8; --fg: #111113; --muted: #4b5563; --card: #ffffff; }
+    }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.55; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); font-weight: 800; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-top: 2rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    header.hero { text-align: center; padding: 40px 20px 20px; }
+    header.hero h1 span { color: var(--muted); font-weight: 500; }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--fg);
+      padding: .4rem .8rem;
+      border-radius: 8px;
+      transition: background .2s ease;
+    }
+    nav a:hover {
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    /* Navigation separator line */
+    .nav-separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--fg) 20%, transparent), transparent);
+      margin: 40px auto 20px;
+      max-width: 300px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img { width: 100%; height: auto; display: block; }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card p { margin: 0 0 1rem; color: var(--muted); }
+    .btn {
+      display: inline-block;
+      padding: .6rem 1rem;
+      border: 1px solid color-mix(in oklab, var(--fg) 14%, transparent);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--fg) 26%, transparent);
+    }
+
+    /* Enhanced Footer Styles */
+    footer {
+      margin-top: 60px;
+      padding: 0;
+      background: linear-gradient(135deg, 
+        color-mix(in oklab, var(--card) 95%, transparent) 0%, 
+        color-mix(in oklab, var(--bg) 98%, var(--card)) 100%);
+      border-top: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--fg) 20%, transparent), transparent);
+    }
+
+    .footer-content {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      margin-bottom: 30px;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, var(--fg), color-mix(in oklab, var(--fg) 70%, var(--muted)));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .footer-tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      border-radius: 50%;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, color-mix(in oklab, var(--fg) 8%, transparent), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px) scale(1.05);
+      border-color: color-mix(in oklab, var(--fg) 20%, transparent);
+      box-shadow: 
+        0 8px 25px rgba(0,0,0,.3),
+        0 3px 12px rgba(0,0,0,.2),
+        inset 2px 2px 8px rgba(255,255,255,.06),
+        inset -3px -3px 12px rgba(0,0,0,.6);
+    }
+
+    .social-link:hover::before {
+      opacity: 1;
+    }
+
+    .social-link:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    /* Social media specific colors on hover */
+    .social-link.facebook:hover {
+      color: #1877f2;
+      border-color: color-mix(in oklab, #1877f2 40%, transparent);
+    }
+
+    .social-link.instagram:hover {
+      color: #e4405f;
+      border-color: color-mix(in oklab, #e4405f 40%, transparent);
+    }
+
+    .social-link.twitter:hover {
+      color: #1da1f2;
+      border-color: color-mix(in oklab, #1da1f2 40%, transparent);
+    }
+
+    .contact-info {
+      margin-bottom: 32px;
+    }
+
+    .email-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .email-link:hover {
+      color: var(--fg);
+      background: color-mix(in oklab, var(--fg) 8%, transparent);
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--fg) 12%, transparent), transparent);
+      margin: 24px 0;
+    }
+
+    .footer-bottom {
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--fg) 12%, transparent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in oklab, var(--fg) 20%, transparent);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .social-links {
+        gap: 15px;
+      }
+      
+      .social-link {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
+    }
+
+    /* New layout styles */
+    .section-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .section-main {
+      flex: 1 1 0%;
+      min-width: 0;
+    }
+    .section-aside {
+      width: 280px;
+      flex-shrink: 0;
+    }
+    .section-aside ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .section-aside li {
+      margin-bottom: 10px;
+    }
+    .section-aside a {
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--muted);
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: all 0.2s ease;
+      display: block; /* Make the border surround the whole block */
+    }
+    .section-aside a:hover {
+      background: var(--card);
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    /* New styles for improved header navigation */
+    .main-links-nav a {
+      color: var(--muted); /* Use a muted color for separation */
+      font-weight: 500;
+      border: 1px solid var(--muted); /* Add a subtle border */
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: all 0.2s ease;
+    }
+
+    .main-links-nav a:hover {
+      background: var(--card);
+      color: var(--fg);
+      border-color: var(--fg);
+    }
+
+    .topics-header {
+      font-size: 1.6rem; /* Make it larger than the default h3 */
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add a subtle grey shadow */
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>The Phantom Ink Creative <span>— A Publication</span></h1>
+    <img src="PhantomInkCreative.jpg" alt="The Phantom Ink Creative Logo" style="width: 350px; height: auto; border-radius: 12px; margin: 20px 0;">
+    <p>Stories, essays, articles, and creative ideas for the curious mind.</p>
+    
+    <nav class="main-links-nav">
+      <a href="discussion.html">Discussion Board</a> 
+      <a href="support.html">Support Our Publication!</a> 
+      <a href="writerscorner.html">Writer's Corner</a>
+    </nav>
+    
+    <div class="nav-separator"></div>
+
+    <nav>
+      <h3 class="topics-header">Article Topics</h3>
+      <a href="#tech">Tech/Web Dev</a>
+      <a href="#mental-health">Mental Health</a>
+      <a href="#personal-development">Personal Development</a>
+      <a href="#lgbtq">LGBTQ+</a>
+      <a href="#chattanooga">Chattanooga</a>
+      <a href="#fiction">Fiction</a>
+    </nav>
+    
+  </header>
+
+  <main class="wrap">
+
+    <section id="tech">
+      <h2>Tech/Web Dev</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="quantum computing.png" alt="Tech article">
+              <div class="card-content">
+                <h3>Quantum Computers Will Steal Your Identity in 2027 (And There's Nothing You Can Do)</h3>
+                <p>The quantum revolution isn't coming to help humanity — it's coming to expose every secret you've ever tried to hide online.</p>
+                <a href="https://www.linkedin.com/pulse/quantum-computers-steal-your-identity-2027-theres-nothing-higgins-wk7kc" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="tech.html" class="btn">View All Tech/Web Dev Articles</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Welcome to The Phantom Ink Creative!</h3>
+          <p>A publication where we believe every great story, whether personal or technical, is worth telling. 
+          Our mission is to blend well-researched articles with authentic personal stories from our main author.</p>
+          <p>Here, you'll find everything from deep dives into tech and web development to insightful discussions 
+            on mental health and personal development. We also share important stories about the LGBTQ+ community 
+            and celebrate the vibrant culture of Chattanooga. The result is a unique mix of hard facts and lived 
+            experiences, designed to inform, inspire, and connect.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="mental-health">
+      <h2>Mental Health</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="dontpanic.jpg" alt="Mental Health article about Panic Disorder">
+              <div class="card-content">
+                <h3>Your Heart Won't Actually Explode: What 20 Years of Panic Attacks Have Taught Me</h3>
+                <p>When your own mind becomes the horror movie you can't turn off</p>
+                <a href="https://medium.com/@nhiggins11688/your-heart-wont-actually-explode-what-20-years-of-panic-attacks-have-taught-me-32c6458524f7?sk=e2ae66acf0235cdf8ad2cd78ab038347" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="mentalhealth.html" class="btn">View All Mental Health Articles</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Resources for Mental Health</h3>
+          <ul>
+            <li><a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/11-tips-for-coping-with-an-anxiety-disorder">Anxiety Coping Tools</a></li>
+            <li><a href="https://www.psychologytoday.com/us/therapists">Therapy Directories</a></li>
+            <li><a href="https://www.melrobbins.com/podcast/?gad_source=1&gad_campaignid=18652557355&gbraid=0AAAAApAMQli2AaT2GIJoQkczl-jz_Bkvx&gclid=Cj0KCQjw8KrFBhDUARIsAMvIApaocBhynPmHfoBCItKJhxIY3R5d2nxxOx4fMJLKg2LVgUcgYV65ykoaArONEALw_wcB">Mental Health Podcasts</a></li>
+            <li><a href="https://medium.com/mental-health-and-addictions-community">Mental Health & Addictions Publication</a></li>
+            <li><a href="https://www.nami.org/Support-Education">NAMI Support & Education</a></li>
+            <li><a href="https://www.mentalhealth.gov/get-help/immediate-help">Immediate Help Resources</a></li>
+            <li><a href="https://www.samhsa.gov/find-help/national-helpline">SAMHSA National Helpline</a></li>
+            <li><a href="https://www.crisistextline.org/">Crisis Text Line</a></li>
+            <li><a href="https://www.7cups.com/">7 Cups Online Therapy & Counseling</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="personal-development">
+      <h2>Personal Development</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="dontgiveup.jpg" alt="Personal Development article about Resilience">
+              <div class="card-content">
+                <h3>Resilience: What It Really Means to Keep Getting Back Up When Life Knocks You Down—Again and Again</h3>
+                <p>Resilience isn't a pretty word. It's not a motivational quote or a Pinterest board of mountain views and "You got this!" captions.</p>
+                <a href="https://www.linkedin.com/pulse/resilience-what-really-means-keep-getting-back-up-when-higgins-typ3c" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="personaldevelopment.html" class="btn">View All Personal Development Articles</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Our Favorite Authors/Writers/Newsletters</h3>
+          <ul>
+            <li><a href="https://weaversdeepthoughts.com/"><b>Nat Weaver</b> - Weaver's Deep Thoughts Monthly Newsletter</a></li>
+            <li><a href="https://smart.bio/speakingbipolar/"><b>Scott Ninneman</b> - Speaking Bipolar Publication</a></li>
+            <li><a href="https://www.bestlifebehavioralhealth.com/"><b>Dr. Samantha Rodman Whiten</b> - Dr. Psych Mom </a></li>
+            <li><a href="https://www.janeausten.org/"><b>Jane Austen</b> - Novelist</a></li>
+            <li><a href="https://www.senlinyuwrites.com/"><b>SenLin Yu</b> - Fantasy Author</a></li>
+            <li><a href="https://carolinepeckham.com/"><b>Caroline Peckham</b> - Romance/Fantasy Author</a></li>
+            <li><a href="https://sarahjmaas.com/"><b>Sarah J Maas</b> - Romance/Fantasy Author</a></li>
+            <li><a href="https://markmanson.net/"><b>Mark Manson</b> - Non-Fiction Self-Development</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="lgbtq">
+      <h2>LGBTQ+</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="mywifeandi.png" alt="LGBTQ+ article about coming out">
+              <div class="card-content">
+                <h3>What 19 Years of Living a Lie Taught Me About Authentic Leadership</h3>
+                <p>A raw story about the cost of pretending to be someone you're not, and why authenticity isn't just a buzzword, it's survival.</p>
+                <a href="https://www.linkedin.com/pulse/what-19-years-living-lie-taught-me-authentic-nichole-higgins-vc00c" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="LGBTQ+.html" class="btn">View All LGBTQ+ Articles</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Community</h3>
+          <img src="books.png" alt="LGBTQ+ Community Resources" width="300" height="200">
+          <ul>
+            <li><a href="https://medium.com/prismnpen">Coming Out Stories/Articles</a></li>
+            <li><a href="https://pflag.org/">LGBTQ+ Support</a></li>
+            <li><a href="https://www.iglta.org/events/pride-calendar/">Pride Events</a></li>
+            <li><a href="https://www.queerlifespace.org/?gad_source=1&gad_campaignid=22208682428&gbraid=0AAAAABxDC4vopgE8mUZ_1l4G9xslTq9AL&gclid=Cj0KCQjw8KrFBhDUARIsAMvIApaPHp4ufEUHkn4PDRfCJq1jwnNOEyqlTdkLfrHWtlMuBZnsCXJSRjcaAnusEALw_wcB">LGBTQ+ Mental Health Support</a></li>
+            <li><a href="https://queerdoc.com/virtual-communities-and-support-groups/">QueerDOC-Virtual Communities & Support</a></li>
+            <li><a href="https://www.reddit.com/r/lgbt/">LGBTQ+ Reddit Community</a></li>
+            <li><a href="https://www.everywhereisqueer.com/">EverywhereIsQueer - Worldwide Queer-Owned Business Map
+            & Online Community Hub</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="chattanooga">
+      <h2>Chattanooga</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="sceniccityview.jpg" alt="Chattanooga history article">
+              <div class="card-content">
+                <h3>The Scenic City's Hidden Stories: Chattanooga's Remarkable Journey Through Time</h3>
+                <p>What makes Chattanooga's story truly captivating isn't just what happened here—it's how a relatively small Southern city managed to play such an outsized role in shaping America itself.</p>
+                <a href="https://www.linkedin.com/pulse/scenic-citys-hidden-stories-chattanoogas-remarkable-journey-higgins-jpgic" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="Chattanooga.html" class="btn">View All Chattanooga Articles</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Explore Our Hometown of Chattanooga</h3>
+          <ul>
+            <li><a href="https://www.visitchattanooga.com/things-to-do/history/?view=list&sort=qualityScore&gad_source=1&gad_campaignid=13164625186&gbraid=0AAAAADxsUekhTY7Exqm4vDI3tZ5xRSiYP&gclid=Cj0KCQjw8KrFBhDUARIsAMvIApb13b4U9TApfk7LpfTgIOfmNUzma9-mIAKF8245UMyOSupw0kwhb6QaAk6mEALw_wcB">Local History</a></li>
+            <li><a href="https://www.visitchattanooga.com/things-to-do/tours/">City Tours</a></li>
+            <li><a href="https://adventuremomblog.com/top-attractions-and-hidden-gems-around-chattanooga/">Hidden Gems</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="fiction">
+      <h2>Fiction</h2>
+      <div class="section-flex">
+        <div class="section-main">
+          <div class="grid">
+            <article class="card">
+              <img src="gabriellecole.jpg" alt="AI future Fiction Stories">
+              <div class="card-content">
+                <h3>The Echoes of Reason: The Experimental Merge</h3>
+                <p>When a brilliant scientist develops a device that merges human minds with artificial 
+                  intelligence, a small group of volunteers discovers powers beyond imagination, but the world they 
+                  create is flawless, cold, and terrifyingly precise.</p>
+                <p>This fictional short story explores the thin line between genius and control, showing how perfection 
+                  can quietly erase humanity itself. Every choice has a cost, and some mistakes may be the only things 
+                  worth keeping.</p>
+                <a href="https://medium.com/@nhiggins11688/the-echoes-of-reason-the-experimental-merge-1081d58c8015?sk=b466eb9ca3e8099accac302c24591392" class="btn">Read More</a>
+              </div>
+            </article>
+          </div>
+          <div style="margin-top:20px;">
+          <a href="fiction.html" class="btn">View All Fiction Stories</a>
+      </div>
+        </div>
+        <aside class="section-aside">
+          <h3>Other Writing Shenanigans</h3>
+          <p>View Author/Writer Nichole Higgins' Work on Medium. Click Below!</p>
+          <a href="https://medium.com/@nhiggins11688/" target="_blank">
+          <img src="medium.jpg" alt="Nichole Higgins Medium Blog Page" width="300" height="200"></a>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>Thank you for visiting The Phantom Ink Creative!</h3>
+        <p class="footer-tagline">Visit our social media platforms to learn more about us.</p>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://facebook.com/phantomink" class="social-link facebook" aria-label="Follow us on Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/phantomink" class="social-link instagram" aria-label="Follow us on Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/phantomink" class="social-link twitter" aria-label="Follow us on X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <a href="mailto:colensammy@gmail.com" class="email-link">
+          <i class="fas fa-envelope"></i>
+          colensammy@gmail.com
+        </a>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-bottom">
+        <span>&copy; 2025 The Phantom Ink Creative</span>
+        <span>•</span>
+        <span>A Publication</span>
+        <span>•</span>
+        <span>Made with ❤️ by WorldSoColed</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Scroll to top functionality
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    // Smooth scroll to top
+    scrollToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Remove parallax effect - footer should stay fixed at bottom
+    
+    // Social link hover animations with micro-interactions
+    document.querySelectorAll('.social-link').forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-3px) scale(1.05) rotate(2deg)';
+      });
+      
+      link.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+      });
+      
+      link.addEventListener('click', function(e) {
+        // Add click animation
+        this.style.transform = 'translateY(-1px) scale(1.02)';
+        setTimeout(() => {
+          this.style.transform = 'translateY(-3px) scale(1.05) rotate(2deg)';
+        }, 150);
+      });
+    });
+    
+    // Email link copy functionality
+    const emailLink = document.querySelector('.email-link');
+    emailLink.addEventListener('click', async function(e) {
+      e.preventDefault();
+      
+      const email = 'colensammy@gmail.com';
+      
+      try {
+        await navigator.clipboard.writeText(email);
+        
+        // Show feedback
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-check"></i> Email copied!';
+        this.style.color = '#4ade80';
+        
+        setTimeout(() => {
+          this.innerHTML = originalText;
+          this.style.color = '';
+        }, 2000);
+        
+      } catch (err) {
+        // Fallback: open default email client
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  </script>
+</body>
+</html>

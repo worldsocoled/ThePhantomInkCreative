@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>LGBTQ+ Articles — The Phantom Ink Creative</title>
+  <meta name="description" content="All Tech & Web Dev articles from The Phantom Ink Creative publication." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --fg: #e8e8ec;
+      --muted: #a9a9b2;
+      --card: #111113;
+      --shadow-1: 0 1px 1px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-2: inset 2px 2px 6px rgba(255,255,255,.04), inset -3px -3px 10px rgba(0,0,0,.5);
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f7f7f8; --fg: #111113; --muted: #4b5563; --card: #ffffff; }
+    }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-top: 2rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    header.hero { text-align: center; padding: 40px 20px 20px; }
+    header.hero h1 span { color: var(--muted); font-weight: 500; }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--fg);
+      padding: .4rem .8rem;
+      border-radius: 8px;
+      transition: background .2s ease;
+    }
+    nav a:hover {
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    /* Grid for newspaper feel */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card img { width: 100%; height: auto; display: block; }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card p { margin: 0 0 1rem; color: var(--muted); }
+
+    .btn {
+      display: inline-block;
+      padding: .6rem 1rem;
+      border: 1px solid color-mix(in oklab, var(--fg) 14%, transparent);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--fg) 26%, transparent); }
+
+    footer { padding: 40px 0; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent); }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>LGBTQ+ Articlesch & Web Dev <span>— The Phantom Ink Creative</span></h1>
+    <p>All articles on LGBTQ+ Community. Coming out. And more.</p>
+
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h2>Featured LGBTQ+ Articles</h2>
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="card">
+        <img src="mywifeandi.png" alt="LGBTQ+ article about coming out">
+              <div class="card-content">
+                <h3>What 19 Years of Living a Lie Taught Me About Authentic Leadership</h3>
+                <p>A raw story about the cost of pretending to be someone you're not, and why authenticity isn't just a buzzword, it's survival.</p>
+                <a href="https://www.linkedin.com/pulse/what-19-years-living-lie-taught-me-authentic-nichole-higgins-vc00c" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="card">
+        <img src="Wifey.jpg" alt="LGBTQ Coming Out article">
+        <div class="card-content">
+          <h3>The Messy but Beautiful Truth About Coming Out in the Bible Belt</h3>
+          <p>A brutally honest LGBTQ story about growing up gay in a religious family, the pain of hiding, and finding love that doesn’t require you to be anyone else.</p>
+          <a href="https://medium.com/@nhiggins11688/the-messy-but-beautiful-truth-about-coming-out-in-the-bible-belt-548097e8a40d?sk=fa4562a0abb0adbe7ab422ae81177ca8" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="card">
+        <img src="family.jpg" alt="Family Acceptance of LGBTQ article">
+        <div class="card-content">
+          <h3>The Hug That Changed Everything: A 13-Year Journey to Acceptance</h3>
+          <p>Sometimes the walls we think are permanent can crumble in an instant. Sometimes love really does win.</p>
+          <a href="https://www.linkedin.com/pulse/hug-changed-everything-13-year-journey-acceptance-nichole-higgins-kvhac" class="btn">Read More</a>
+        </div>
+      </article>
+
+    
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Phantom Ink Creative | A Publication</p>
+  </footer>
+</body>
+</html>

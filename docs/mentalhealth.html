@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>Mental Health Articles — The Phantom Ink Creative</title>
+  <meta name="description" content="All Tech & Web Dev articles from The Phantom Ink Creative publication." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --fg: #e8e8ec;
+      --muted: #a9a9b2;
+      --card: #111113;
+      --shadow-1: 0 1px 1px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-2: inset 2px 2px 6px rgba(255,255,255,.04), inset -3px -3px 10px rgba(0,0,0,.5);
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f7f7f8; --fg: #111113; --muted: #4b5563; --card: #ffffff; }
+    }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-top: 2rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    header.hero { text-align: center; padding: 40px 20px 20px; }
+    header.hero h1 span { color: var(--muted); font-weight: 500; }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--fg);
+      padding: .4rem .8rem;
+      border-radius: 8px;
+      transition: background .2s ease;
+    }
+    nav a:hover {
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    /* Grid for newspaper feel */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card img { width: 100%; height: auto; display: block; }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card p { margin: 0 0 1rem; color: var(--muted); }
+
+    .btn {
+      display: inline-block;
+      padding: .6rem 1rem;
+      border: 1px solid color-mix(in oklab, var(--fg) 14%, transparent);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--fg) 26%, transparent); }
+
+    footer { padding: 40px 0; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent); }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Mental Health <span>— The Phantom Ink Creative</span></h1>
+    <p>All articles on Mental Health, Addiction, & Psychology.</p>
+
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h2>Featured Mental Health Articles</h2>
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="card">
+        <img src="dontpanic.jpg" alt="Mental Health article about Panic Disorder">
+              <div class="card-content">
+                <h3>Your Heart Won't Actually Explode: What 20 Years of Panic Attacks Have Taught Me</h3>
+                <p>When your own mind becomes the horror movie you can't turn off</p>
+          <a href="https://medium.com/@nhiggins11688/your-heart-wont-actually-explode-what-20-years-of-panic-attacks-have-taught-me-32c6458524f7?sk=e2ae66acf0235cdf8ad2cd78ab038347" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="card">
+        <img src="addiction.jpg" alt="Addiction article">
+        <div class="card-content">
+          <h3>Addiction Is a Symptom... Not a Disease</h3>
+          <p>Why Mental Health Is the Missing Piece in the Fight Against Substance Abuse</p>
+          <a href="https://medium.com/@nhiggins11688/addiction-is-a-symptom-why-mental-health-is-the-missing-piece-in-the-fight-against-substance-abuse-d5df1b1f0a1d?sk=2129fa7dac5510c17bb8b9fec10b2646" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="card">
+        <img src="Jung.jpg" alt="Psychology Jung Article">
+        <div class="card-content">
+          <h3>The Most Terrifying Thing Jung Ever Said (And Why He’s Right)</h3>
+          <p>“The most terrifying thing is to accept oneself completely.” -Jung</p>
+          <a href="https://medium.com/readers-digests/the-most-terrifying-thing-jung-ever-said-and-why-hes-right-32021862dea1?sk=2465247afc59ec6abe9228a745805b0a" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="card">
+        <img src="cole.jpg" alt="Mental Health article">
+        <div class="card-content">
+          <h3>Living with Mental Illness in a World That Demands Consistency</h3>
+          <p>My Cycle of Rise, Crash, Repeat. I’ve been asking myself this question more than I care to admit, “Why can’t I just hold down a job like a ‘normal’ person?”</p>
+          <a href="https://medium.com/@nhiggins11688/living-with-mental-illness-in-a-world-that-demands-consistency-ca336f0e1ddb?sk=dfb4cd71436e99e46902223210eba494" class="btn">Read More</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Phantom Ink Creative | A Publication</p>
+  </footer>
+</body>
+</html>

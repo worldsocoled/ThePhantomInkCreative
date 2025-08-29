@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>Personal Development Articles — The Phantom Ink Creative</title>
+  <meta name="description" content="All Tech & Web Dev articles from The Phantom Ink Creative publication." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --fg: #e8e8ec;
+      --muted: #a9a9b2;
+      --card: #111113;
+      --shadow-1: 0 1px 1px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-2: inset 2px 2px 6px rgba(255,255,255,.04), inset -3px -3px 10px rgba(0,0,0,.5);
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f7f7f8; --fg: #111113; --muted: #4b5563; --card: #ffffff; }
+    }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-top: 2rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    header.hero { text-align: center; padding: 40px 20px 20px; }
+    header.hero h1 span { color: var(--muted); font-weight: 500; }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--fg);
+      padding: .4rem .8rem;
+      border-radius: 8px;
+      transition: background .2s ease;
+    }
+    nav a:hover {
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    /* Grid for newspaper feel */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card img { width: 100%; height: auto; display: block; }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card p { margin: 0 0 1rem; color: var(--muted); }
+
+    .btn {
+      display: inline-block;
+      padding: .6rem 1rem;
+      border: 1px solid color-mix(in oklab, var(--fg) 14%, transparent);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--fg) 26%, transparent); }
+
+    footer { padding: 40px 0; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent); }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Personal Development <span>— The Phantom Ink Creative</span></h1>
+    <p>All articles on personal development and self-help.</p>
+
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h2>Featured Personal Development Articles</h2>
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="card">
+        <img src="dontgiveup.jpg" alt="Personal Development article about Resilience">
+              <div class="card-content">
+                <h3>Resilience: What It Really Means to Keep Getting Back Up When Life Knocks You Down—Again and Again</h3>
+                <p>Resilience isn't a pretty word. It's not a motivational quote or a Pinterest board of mountain views and "You got this!" captions.</p>
+                <a href="https://www.linkedin.com/pulse/resilience-what-really-means-keep-getting-back-up-when-higgins-typ3c" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="card">
+        <img src="nobsbook.jpg" alt="Loving Someone With Bipolar article">
+        <div class="card-content">
+          <h3>10 Things No One Tells You About Loving Someone With Bipolar Disorder</h3>
+          <p>10 things no one tells you about loving someone with bipolar, portions of my e-book (pictured above.)</p>
+          <a href="https://medium.com/@nhiggins11688/10-things-no-one-tells-you-about-loving-someone-with-bipolar-disorder-23a512df0b83?sk=01b7c7965590555f5b13cc755ce372bd" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="card">
+        <img src="emoeating.jpg" alt="Emotional Eating Article">
+        <div class="card-content">
+          <h3>No-BS Guide to Emotional Eating — How to Stop Using Food as a Therapist</h3>
+          <p>Have you ever found yourself standing in your kitchen at midnight, eating directly from a container, not even 
+            tasting what is going into your mouth? Just needing something, anything, to fill the hollow ache inside your chest?</p>
+          <a href="https://medium.com/@nhiggins11688/no-bs-guide-to-emotional-eating-how-to-stop-using-food-as-a-therapist-2072f288b529?sk=36aad221d2cc200186e0962868fd2c10" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="card">
+        <img src="food.jpg" alt="Food Science Mental Health article">
+        <div class="card-content">
+          <h3>Your Fork Is Your Most Powerful Antidepressant: The Science Behind Food and Mental Health</h3>
+          <p>I used to think my 3 PM mental fog was just part of being an adult. You know that feeling, when your 
+            brain feels like it’s swimming through molasses and you’d sell your soul for another coffee?</p>
+          <a href="https://medium.com/@nhiggins11688/your-fork-is-your-most-powerful-antidepressant-the-science-behind-food-and-mental-health-97eddaadf647?sk=85817f197c55bc7a4f32bd0986161409" class="btn">Read More</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Phantom Ink Creative | A Publication</p>
+  </footer>
+</body>
+</html>

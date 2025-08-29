@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>Chattanooga,TN Articles — The Phantom Ink Creative</title>
+  <meta name="description" content="All Tech & Web Dev articles from The Phantom Ink Creative publication." />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --fg: #e8e8ec;
+      --muted: #a9a9b2;
+      --card: #111113;
+      --shadow-1: 0 1px 1px rgba(0,0,0,.12), 0 8px 24px rgba(0,0,0,.28);
+      --shadow-2: inset 2px 2px 6px rgba(255,255,255,.04), inset -3px -3px 10px rgba(0,0,0,.5);
+      --radius: 18px;
+      --maxw: 1200px;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f7f7f8; --fg: #111113; --muted: #4b5563; --card: #ffffff; }
+    }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .6em; }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-top: 2rem; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+
+    header.hero { text-align: center; padding: 40px 20px 20px; }
+    header.hero h1 span { color: var(--muted); font-weight: 500; }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--fg);
+      padding: .4rem .8rem;
+      border-radius: 8px;
+      transition: background .2s ease;
+    }
+    nav a:hover {
+      background: color-mix(in oklab, var(--fg) 12%, transparent);
+    }
+
+    /* Grid for newspaper feel */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1), var(--shadow-2);
+      border: 1px solid color-mix(in oklab, var(--fg) 8%, transparent);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .card img { width: 100%; height: auto; display: block; }
+    .card-content { padding: 20px; flex-grow: 1; }
+    .card p { margin: 0 0 1rem; color: var(--muted); }
+
+    .btn {
+      display: inline-block;
+      padding: .6rem 1rem;
+      border: 1px solid color-mix(in oklab, var(--fg) 14%, transparent);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--fg);
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in oklab, var(--fg) 26%, transparent); }
+
+    footer { padding: 40px 0; color: var(--muted); text-align: center; border-top: 1px solid color-mix(in oklab, var(--fg) 10%, transparent); }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>Chattanooga <span>— The Phantom Ink Creative</span></h1>
+    <p>All articles on Chattanooga history, culture, fun stuff, and more.</p>
+
+    <nav>
+      <a href="index.html">← Back to Home</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <h2>Featured Chattanooga,TN Articles</h2>
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <article class="card">
+        <img src="sceniccityview.jpg" alt="Chattanooga History article">
+        <div class="card-content">
+          <h3>The Scenic City's Hidden Stories: Chattanooga's Remarkable Journey Through Time</h3>
+                <p>What makes Chattanooga's story truly captivating isn't just what happened here—it's how a relatively small Southern city managed to play such an outsized role in shaping America itself.</p>
+                <a href="https://www.linkedin.com/pulse/scenic-citys-hidden-stories-chattanoogas-remarkable-journey-higgins-jpgic" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="card">
+        <img src="lostcounty.jpg" alt="James County TN article">
+        <div class="card-content">
+          <h3>The Lost County's Heart: How Tennessee's Forgotten James County Made Ooltewah Its Crown Jewel</h3>
+          <p>Before the subdivisions sprawled across the rolling hills, before the interstate carved its concrete scar through the valley, before the strip malls and chain restaurants transformed 
+            this corner of Tennessee into suburban sameness, there was something different here. Something older. Something sacred.</p>
+          <a href="https://www.linkedin.com/pulse/lost-countys-heart-how-tennessees-forgotten-james-county-higgins-tafwc" class="btn">Read More</a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="card">
+        <img src="harrisonbay.jpg " alt="Harrison Bay History Article">
+        <div class="card-content">
+          <h3>Beneath the Waves: The Lost Town of Harrison - Hamilton County's Hidden Atlantis</h3>
+          <p>somewhere beneath the gentle lapping waves of Chickamauga Lake, church bells still hang silent in steeples, 
+            front porches hold memories of summer evenings, and Main Street stretches into eternal darkness. This 
+            isn't the plot of a Hollywood thriller or a fever dream—it's the very real story of Old Harrison, 
+            Tennessee, Hamilton County's own Atlantis that sleeps beneath the waters just minutes from Chattanooga.</p>
+          <a href="https://www.linkedin.com/pulse/beneath-waves-lost-town-harrison-hamilton-countys-hidden-higgins-sjwjc" class="btn">Read More</a>
+        </div>
+      </article>
+
+      
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Phantom Ink Creative | A Publication</p>
+  </footer>
+</body>
+</html>
